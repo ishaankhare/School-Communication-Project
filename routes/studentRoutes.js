@@ -1,21 +1,13 @@
 const express = require('express');
 const { getStudents, getStudent, setStudent, updateStudent, deleteStudent } = require('../controllers/studentController');
+const { getTeachers } = require('../controllers/teacherController');
 const router = express.Router()
 
-//List of students
-router.get('/', getStudents);
+// Single student
+router.get('/me/', getStudent);
 
-// //Single teacher
-router.get('/:id', getStudent);
-
-//Add teacher
-router.post('/', setStudent);
-
-// //Update teacher
-router.put('/:id', updateStudent);
-
-//Delete teacher
-router.delete('/:id', deleteStudent);
+// All teachers
+router.get('teachers/', getTeachers);
 
 //The above can be written as:::
 

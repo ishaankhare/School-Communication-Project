@@ -1,26 +1,19 @@
 const express = require('express');
-const { getTeachers, getTeacher, setTeacher, updateTeacher, deleteTeacher } = require('../controllers/teacherController');
+const { getTeachers, getTeacher, setTeacher, updateTeacher, deleteTeacher, addStudent, deleteStudent } = require('../controllers/teacherController');
 const router = express.Router()
 
-// //List of teachers
-// router.get('/', getTeachers);
+//Write route to send emails to students 
 
-// // //Single teacher
-// router.get('/:id', getTeacher);
 
-// //Add teacher
-// router.post('/', setTeacher);
 
-// // //Update teacher
-// router.put('/:id', updateTeacher);
 
-// //Delete teacher
-// router.delete('/:id', deleteTeacher);
+
 
 //The above can be written as:::
 
-router.route('/').get(getTeachers).post(setTeacher);
-router.route('/:id').get(getTeacher).put(updateTeacher).delete(deleteTeacher);
+// router.route('/').get(getTeachers).post(setTeacher);
+// router.route('/:id').get(getTeacher).put(updateTeacher).delete(deleteTeacher);
+router.route('/subscriptions/:id').post(addStudent)//.put(deleteStudent);
 
 module.exports = router
 
